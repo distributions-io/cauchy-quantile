@@ -29,7 +29,8 @@
     "statistics",
     "stats",
     "cdf",
-    "inverse"
+    "inverse",
+    "percent point"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/cauchy-quantile/issues"

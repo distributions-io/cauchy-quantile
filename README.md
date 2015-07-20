@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = quantile( 0.25 );
-// returns
+// returns ~-1
 
 x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x );
-// returns [...]
+// returns [ -Infinity, ~-1.38, ~-0.325, ~0.325, ~1.38, +Infinity ]
 
 x = new Float32Array( x );
 out = quantile( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [-Infinity,~-1.38,~-0.325,~0.325,~1.38,+Infinity] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = quantile( mat );
 /*
-	[
-
-	   ]
+	[ -Infinity ~-1.73
+	    ~-0.577     ~0
+	     ~0.577  ~1.73 ]
 */
 ```
 
@@ -88,7 +88,7 @@ var out = quantile( x, {
 	'x0': 2,
 	'gamma': 1,
 });
-// returns [...]
+// returns [ -Infinity, ~0.624, ~1.68, ~2.32, ~3.38, +Infinity ]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -110,7 +110,7 @@ function getValue( d, i ) {
 var out = quantile( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ -Infinity, ~0.624, ~1.68, ~2.32, ~3.38, +Infinity ]
 ```
 
 
@@ -132,12 +132,12 @@ var out = quantile( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
-		{'x':[5,]}
+		{'x':[0,-Infinity]},
+		{'x':[1,~0.624]},
+		{'x':[2,~1.68]},
+		{'x':[3,~2.32]},
+		{'x':[4,~3.38]},
+		{'x':[5,+Infinity]}
 	]
 */
 
@@ -155,13 +155,14 @@ x = new Float32Array( [0,0.2,0.4,0.6,0.8,1] );
 out = quantile( x, {
 	'dtype': 'int32'
 });
-// returns Int32Array( [...] )
+// returns Int32Array( [0,0,1,2,3,0] )
+// BEWARE: Infinity is cast to `0` for integer arrays
 
 // Works for plain arrays, as well...
 out = quantile( [0,0.2,0.4,0.6,0.8,1], {
-	'dtype': 'uint8'
+	'dtype': 'float32'
 });
-// returns Uint8Array( [...] )
+// returns Float32Array( [-Infinity,~0.624,~1.68,~2.32,~3.38, +Infinity] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -178,7 +179,7 @@ x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ -Infinity, ~0.624, ~1.68, ~2.32, ~3.38, +Infinity ]
 
 bool = ( x === out );
 // returns true
@@ -198,9 +199,9 @@ out = quantile( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ -Infinity ~-1.73
+	    ~-0.577     ~0
+	     ~0.577  ~1.73 ]
 */
 
 bool = ( mat === out );
