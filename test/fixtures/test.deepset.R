@@ -3,7 +3,7 @@ library( jsonlite );
 
 
 x0 = 0
-gamma = 1
+gamma = 6
 probs = seq( 0, 1, 0.1 )
 y = qcauchy( probs, x0, gamma )
 

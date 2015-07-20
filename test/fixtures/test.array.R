@@ -2,7 +2,7 @@ options( digits = 16 );
 library( jsonlite );
 
 
-x0 = 0
+x0 = -3
 gamma = 1
 probs = seq( 0, 1, 0.1 )
 y = qcauchy( probs, x0, gamma )

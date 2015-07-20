@@ -144,7 +144,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 			for ( var i = 0; i < data.length; i++ ) {
 				actual =  quantile( data[ i ], {
 					'x0': validationData.x0,
-		'gamma': validationData.gamma
+					'gamma': validationData.gamma
 				});
 				if ( isFiniteNumber( actual ) && isFiniteNumber( expected[ i ] ) ) {
 					assert.closeTo( actual, expected[ i ] , 1e-12 );
@@ -174,7 +174,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 
 		actual = quantile( data, {
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.notEqual( actual, data );
 
@@ -205,7 +205,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 			expected,
 			i;
 
-		data = new Float32Array( validationData.data );
+		data = new Float64Array( validationData.data );
 
 		expected = new Float64Array( validationData.expected.map( function( d ) {
 			if (d === 'Inf' ) {
@@ -219,7 +219,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 
 		actual = quantile( data, {
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.notEqual( actual, data );
 
@@ -233,9 +233,9 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		actual = quantile( data, {
 			'copy': false,
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
-		expected = new Float32Array( validationData.expected.map( function( d ) {
+		expected = new Float64Array( validationData.expected.map( function( d ) {
 			if (d === 'Inf' ) {
 				return Number.POSITIVE_INFINITY;
 			}
@@ -275,7 +275,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		actual = quantile( data, {
 			'dtype': 'float32',
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 
 		assert.notEqual( actual, data );
@@ -312,7 +312,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		actual = quantile( data, {
 			'accessor': getValue,
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.notEqual( actual, data );
 
@@ -327,7 +327,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 			'accessor': getValue,
 			'copy': false,
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.strictEqual( actual, data );
 
@@ -356,7 +356,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		actual = quantile( data, {
 			'path': 'x.1',
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 
 		expected = validationData.expected
@@ -389,7 +389,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 			'path': 'x/1',
 			'sep': '/',
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.strictEqual( actual, data );
 
@@ -422,7 +422,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		mat = matrix( d1, [5,5], 'float64' );
 		out = quantile( mat, {
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 
 		for ( i = 0; i < out.length; i++ ) {
@@ -435,7 +435,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		out = quantile( mat, {
 			'copy': false,
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 		assert.strictEqual( mat, out );
 
@@ -469,7 +469,7 @@ describe( 'distributions-cauchy-quantile', function tests() {
 		out = quantile( mat, {
 			'dtype': 'float32',
 			'x0': validationData.x0,
-		'gamma': validationData.gamma
+			'gamma': validationData.gamma
 		});
 
 		assert.strictEqual( out.dtype, 'float32' );
