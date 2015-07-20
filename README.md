@@ -2,7 +2,7 @@ Quantile Function
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution quantile function](https://en.wikipedia.org/wiki/Quantile_function).
+> [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution [quantile function](https://en.wikipedia.org/wiki/Quantile_function).
 
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) random variable is
 
