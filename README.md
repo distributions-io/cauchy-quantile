@@ -2,12 +2,12 @@ Quantile Function
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution probability density function (PDF).
+> [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution [quantile function](https://en.wikipedia.org/wiki/Quantile_function).
 
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:quantile_function">
-	<img src="" alt="Quantile function for a Cauchy distribution.">
+<div class="equation" align="center" data-raw-text="Q(p; x_0,\gamma) = x_0 + \gamma\,\tan\left[\pi\left(p-\tfrac{1}{2}\right)\right]" data-equation="eq:quantile_function">
+	<img src="https://cdn.rawgit.com/distributions-io/cauchy-quantile/8cd8de3be84a93875a335f935e814a03fcfaa03b/docs/img/eqn.svg" alt="Quantile function for a Cauchy distribution.">
 	<br>
 </div>
 
@@ -214,13 +214,13 @@ bool = ( mat === out );
 *	For any `p` outside the interval `[0,1]`, the the evaluated [quantile function](https://en.wikipedia.org/wiki/Quantile_function) is `NaN`.
 
 	```javascript
-		var out;
+	var out;
 
-		out = quantile( 1.1 );
-		// returns NaN
+	out = quantile( 1.1 );
+	// returns NaN
 
-		out = quantile( -0.1 );
-		// returns NaN
+	out = quantile( -0.1 );
+	// returns NaN
 	```
 
 *	If an element is __not__ a numeric value, the evaluated [quantile function](https://en.wikipedia.org/wiki/Quantile_function) is `NaN`.
