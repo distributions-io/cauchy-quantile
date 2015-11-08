@@ -1,6 +1,6 @@
 Quantile Function
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution probability density function (PDF).
 
@@ -11,7 +11,7 @@ The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [
 	<br>
 </div>
 
-for `0 <= p < 1`, where `x0` is the location parameter and `gamma` is the scale parameter.
+for `0 <= p < 1`, where `x0` is the location parameter and `gamma > 0` is the scale parameter.
 
 ## Installation
 
@@ -79,7 +79,7 @@ The function accepts the following `options`:
 *	__path__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path.
 *	__sep__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path separator. Default: `'.'`.
 
-A [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution is a function of 2 parameter(s): `x0`(location parameter) and `gamma`(scale parameter). By default, `x0` is equal to `0` and `gamma` is equal to `1`. To adjust either parameter, set the corresponding option(s).
+A [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution) distribution is a function of two parameters: `x0`(location parameter) and `gamma > 0`(scale parameter). By default, `x0` is equal to `0` and `gamma` is equal to `1`. To adjust either parameter, set the corresponding options.
 
 ``` javascript
 var x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
@@ -390,8 +390,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/cauchy-quantile/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/cauchy-quantile
 
-[coveralls-image]: https://img.shields.io/coveralls/distributions-io/cauchy-quantile/master.svg
-[coveralls-url]: https://coveralls.io/r/distributions-io/cauchy-quantile?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/cauchy-quantile/master.svg
+[codecov-url]: https://codecov.io/github/distributions-io/cauchy-quantile?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/cauchy-quantile.svg
 [dependencies-url]: https://david-dm.org/distributions-io/cauchy-quantile
